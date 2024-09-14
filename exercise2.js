@@ -8,6 +8,28 @@
 
 // YOUR CODE HERE
 
+function Device(brand){
+    this.brand = brand
+}
+
+Device.prototype.powerOn= function(){
+    console.log(`${this.brand} device is now powered on.`)
+}
+
+function Smartphone(model, brand){
+    Device.call(this, brand)
+
+    this.model= model
+}
+
+Smartphone.prototype = Object.create(Device.prototype);
+Smartphone.prototype.constructor = Smartphone;
+
+Smartphone.prototype.call= function(){
+    console.log(`Calling from ${this.model} ${this.brand}`)
+
+}
+
 
 
 
